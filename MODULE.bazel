@@ -1,0 +1,7 @@
+bazel_dep(name = "rules_multirun", version = "0.14.0")
+bazel_dep(name = "rules_shell", version = "0.8.0")
+
+# By default rules_multirun uses an older version of rules_python.
+# The issue can only be introduced in newer versions after
+# https://github.com/bazel-contrib/rules_python/commit/2e6f8ad5fe4dd0cc81550dd533692638e8cffe52
+bazel_dep(name = "rules_python", version = "2.0.2")

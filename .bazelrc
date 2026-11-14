@@ -1,0 +1,2 @@
+# Uncomment this flag to see workaround
+#common --@rules_python//python/config_settings:venvs_use_declare_symlink=no

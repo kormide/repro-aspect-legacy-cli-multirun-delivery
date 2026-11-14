@@ -1,0 +1,31 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_multirun//:defs.bzl", "command", "multirun")
+
+sh_binary(
+    name = "a",
+    srcs = ["a.sh"]
+)
+
+sh_binary(
+    name = "b",
+    srcs = ["b.sh"]
+)
+
+command(
+    name = "deliver-a",
+    command = ":a",
+)
+
+command(
+    name = "deliver-b",
+    command = ":b",
+)
+
+multirun(
+    name = "deliver_all",
+    commands = [
+        ":deliver-a",
+        ":deliver-b",
+    ],
+    jobs = 2
+)
